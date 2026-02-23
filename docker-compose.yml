@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./backend
+    container_name: crud-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - crud-network
+
+  frontend:
+    build: ./frontend
+    container_name: crud-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    networks:
+      - crud-network
+
+  mongodb:
+    image: mongo:6
+    container_name: crud-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - crud-network
+
+networks:
+  crud-network:
+
+volumes:
+  mongo-data:
