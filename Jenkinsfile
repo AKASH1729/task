@@ -67,10 +67,10 @@ pipeline {
             }
         }
 
-        stage("Docker: Push Images") {
-            steps {
-                docker_push("cron-backend", params.BACKEND_DOCKER_TAG, "akas11729")
-                docker_push("cron-frontend", params.FRONTEND_DOCKER_TAG, "akas11729")
+    stage("Docker: Push Images") {
+        steps {
+            docker_push("cron-backend", params.BACKEND_DOCKER_TAG, "akas11729")
+            docker_push("cron-frontend", params.FRONTEND_DOCKER_TAG, "akas11729")
             }
         }
 
