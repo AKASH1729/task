@@ -125,7 +125,7 @@ Running containers:
 
 📸 Screenshot:
 
-![Docker Containers](screenshots/15.png)
+![Docker Containers](screenshots/14.png)
 
 ---
 
@@ -153,13 +153,7 @@ Application deployed and accessible via:
 
 ---
 
-# 🔐 DockerHub Login Stage Logs
 
-Docker login configured using Jenkins Secret Text credentials.
-
-📸 Screenshot:
-
-![Docker Login Logs](screenshots/8.png)
 
 ---
 
