@@ -70,8 +70,8 @@ pipeline {
     stage("Docker: Push Images") {
             steps {
                 script {
-                    docker_push("ecommerce-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
-                    docker_push("ecommerce-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
+                    docker_push("cron-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
+                    docker_push("cron-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
                 }
             }
         }
