@@ -58,30 +58,23 @@ pipeline {
             }
         }
 
-        // 🔥 NEW LOGIN STAGE
-        stage("Docker: Login") {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh '''
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    '''
-                }
-            }
-        }
-
-        stage("Docker: Push Images") {
-            steps {
-                script {
-                    docker_push("cron-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
-                    docker_push("cron-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
-                }
-            }
+    
+stage("Docker: Push Images") {
+    steps {
+        withCredentials([usernamePassword(
+            credentialsId: 'dockerhub-creds',
+            usernameVariable: 'USERNAME',
+            passwordVariable: 'PASSWORD'
+        )]) {
+            sh """
+                echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
+                docker push akas11729/cron-backend:${params.BACKEND_DOCKER_TAG}
+                docker push akas11729/cron-frontend:${params.FRONTEND_DOCKER_TAG}
+            """
         }
     }
+}
+  
 
     post {
         success {
