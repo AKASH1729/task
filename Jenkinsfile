@@ -58,6 +58,14 @@ pipeline {
             }
         }
 
+    stage("Docker: Push Images") {
+            steps {
+                script {
+                    docker_push("cron-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
+                    docker_push("cron-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
+                }
+            }
+        }
         stage("Deploy: Docker Compose") {
             steps {
                 docker_compose(
@@ -67,14 +75,6 @@ pipeline {
             }
         }
 
-    stage("Docker: Push Images") {
-            steps {
-                script {
-                    docker_push("cron-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
-                    docker_push("cron-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
-                }
-            }
-        }
 
     }   
 }       
