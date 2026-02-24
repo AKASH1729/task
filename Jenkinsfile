@@ -67,21 +67,14 @@ pipeline {
             }
         }
 
-   stage("Docker: Push Images") {
-    steps {
-        withCredentials([usernamePassword(
-            credentialsId: 'dockerhub-creds',
-            usernameVariable: 'USERNAME',
-            passwordVariable: 'PASSWORD'
-        )]) {
-            sh """
-                echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin
-                docker push akas11729/cron-backend:${params.BACKEND_DOCKER_TAG}
-                docker push akas11729/cron-frontend:${params.FRONTEND_DOCKER_TAG}
-            """
+    stage("Docker: Push Images") {
+            steps {
+                script {
+                    docker_push("ecommerce-backend", "${params.BACKEND_DOCKER_TAG}", "akas11729")
+                    docker_push("ecommerce-frontend", "${params.FRONTEND_DOCKER_TAG}", "akas11729")
+                }
+            }
         }
-    }
-}
 
     }   
 }       
