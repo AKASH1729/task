@@ -56,22 +56,23 @@ pipeline {
                     }
                 }
             }
-
         }
 
-stage("Deploy: Docker Compose") {
-    steps {
-        docker_compose(
-            params.BACKEND_DOCKER_TAG,
-            params.FRONTEND_DOCKER_TAG
-        )
-    }
-}
-
- stage("Docker: Push Images") {
-    steps {
-        dockerPush("cron-backend", params.BACKEND_DOCKER_TAG, "akas11729")
-        dockerPush("cron-frontend", params.FRONTEND_DOCKER_TAG, "akas11729")
+        stage("Deploy: Docker Compose") {
+            steps {
+                docker_compose(
+                    params.BACKEND_DOCKER_TAG,
+                    params.FRONTEND_DOCKER_TAG
+                )
+            }
         }
-    }
-}
+
+        stage("Docker: Push Images") {
+            steps {
+                docker_push("cron-backend", params.BACKEND_DOCKER_TAG, "akas11729")
+                docker_push("cron-frontend", params.FRONTEND_DOCKER_TAG, "akas11729")
+            }
+        }
+
+    }   
+}       
