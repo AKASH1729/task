@@ -2,8 +2,6 @@
 pipeline {
     agent any
 
-  
-
     parameters {
         string(name: 'FRONTEND_DOCKER_TAG', defaultValue: '', description: 'Frontend Docker image tag')
         string(name: 'BACKEND_DOCKER_TAG', defaultValue: '', description: 'Backend Docker image tag')
@@ -38,11 +36,6 @@ pipeline {
             }
         }
 
-      
-
-      
-
-
         stage("Docker: Build Images") {
             steps {
                 script {
@@ -61,6 +54,21 @@ pipeline {
                             "akas11729"
                         )
                     }
+                }
+            }
+        }
+
+        // 🔥 NEW LOGIN STAGE
+        stage("Docker: Login") {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                    '''
                 }
             }
         }
