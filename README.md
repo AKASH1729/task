@@ -27,7 +27,8 @@ Webhook triggers Jenkins pipeline automatically on code push.
 
 📸 Screenshot:
 
-![GitHub Webhook](screenshots/094011.png)
+![GitHub Webhook](screenshots/webhook.png)(screenshots/6.png)(screenshots/8.png)
+
 
 ---
 
@@ -37,7 +38,7 @@ Jenkins configured with shared library from GitHub.
 
 📸 Screenshot:
 
-![Jenkins Shared Library](screenshots/094226.png)
+![Jenkins Shared Library](screenshots/1.png)
 
 ---
 
@@ -50,7 +51,7 @@ Pipeline configured with parameters:
 
 📸 Screenshot:
 
-![Pipeline Parameters](screenshots/100634.png)
+![Pipeline Parameters](screenshots/4.png)(screenshots/8.png)
 
 ---
 
@@ -60,11 +61,9 @@ Initial pipeline failures during Docker login & push.
 
 📸 Screenshot:
 
-![Failed Pipeline](screenshots/103249.png)
+![Failed Pipeline](screenshots/9.png)
 
-📸 Screenshot:
 
-![Failed Stage View](screenshots/103308.png)
 
 ---
 
@@ -76,13 +75,6 @@ Initial pipeline failures during Docker login & push.
 - Frontend (Port 80)
 - MongoDB (Port 27017)
 
-📸 Screenshot:
-
-![Docker Compose File](screenshots/103354.png)
-
-📸 Screenshot:
-
-![Docker Compose GitHub View](screenshots/103423.png)
 
 ---
 
@@ -98,26 +90,28 @@ Pipeline stages:
 - Docker Push
 - Deploy via Docker Compose
 
+📸 Screenshot :
+
+![Images version ](screenshots/2.png)
+
 📸 Screenshot:
 
-![Successful Pipeline](screenshots/103447.png)
 
-📸 Screenshot:
+![Final Successful Build](screenshots/4.png)
 
-![Final Successful Build](screenshots/103543.png)
 
 ---
 
 # 🐳 Docker Images Built
 
-Images created:
+Images created and push to dockerhub:
 
 - `akash1729/cron-backend`
 - `akash1729/cron-frontend`
 
 📸 Screenshot:
 
-![Docker Images](screenshots/104133.png)
+![Docker Images](screenshots/15.png)
 
 ---
 
@@ -131,7 +125,7 @@ Running containers:
 
 📸 Screenshot:
 
-![Docker Containers](screenshots/104150.png)
+![Docker Containers](screenshots/15.png)
 
 ---
 
@@ -143,19 +137,19 @@ Application deployed and accessible via:
 
 📸 Screenshot:
 
-![Application UI](screenshots/104238.png)
+![Application UI](screenshots/10.png)
 
 📸 Screenshot:
 
-![Add Tutorial Page](screenshots/104244.png)
+![Add Tutorial Page](screenshots/11.png)
 
 📸 Screenshot:
 
-![Submission Success](screenshots/104302.png)
+![Submission Success](screenshots/12.png)
 
 📸 Screenshot:
 
-![Tutorial List View](screenshots/104321.png)
+![Tutorial List View](screenshots/13.png)
 
 ---
 
@@ -165,7 +159,7 @@ Docker login configured using Jenkins Secret Text credentials.
 
 📸 Screenshot:
 
-![Docker Login Logs](screenshots/100634.png)
+![Docker Login Logs](screenshots/8.png)
 
 ---
 
